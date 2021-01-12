@@ -6,9 +6,22 @@
         <title>Document</title>
     </head>
     <body>
+        <div id="app"></div>
         <!--
             tree shaking :打包的时候没用到的代码会被自动清除
         -->
         <script src="../dist/vue.js"></script>
+        <!-- <script src="/node_modules/@vue/reactivity/dist/reactivity.global.js"></script> -->
+        <script>
+            const { reactive, effect, ref, computed, toRefs } = VueReactivity;
+            const state = reactive({ name: "liao", age: "20" });
+            console.log(state);
+            // //当effect依赖的数据发生变化，effect函数会重新执行
+            // effect(() => {
+            //     console.log("ok");
+            //     app.innerHTML = state.name;
+            // });
+            // state.name = "iao";
+        </script>
     </body>
 </html>

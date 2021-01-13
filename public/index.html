@@ -15,13 +15,14 @@
         <script>
             const { reactive, effect, ref, computed, toRefs } = VueReactivity;
             const state = reactive({ name: "liao", age: "20" });
-            console.log(state);
+
             // //当effect依赖的数据发生变化，effect函数会重新执行
-            // effect(() => {
-            //     console.log("ok");
-            //     app.innerHTML = state.name;
-            // });
+            effect(() => {
+                console.log("ok");
+                app.innerHTML = state.name;
+            });
             // state.name = "iao";
+            setTimeout(() => {}, 2000);
         </script>
     </body>
 </html>

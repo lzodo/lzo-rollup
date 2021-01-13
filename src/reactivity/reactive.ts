@@ -22,6 +22,9 @@ function createReactiveObject(target, mutableHandlers) {
 
     //只对最外层对象做代理，默认不会递归，而且不会重写对象中的属性
     let proxy = new Proxy(target, mutableHandlers);
-    proxyMap.set(target, proxy); //将代理的对象与代理的结果做一个映射表
+
+    //将代理的对象与代理的结果做一个映射表
+    proxyMap.set(target, proxy);
+
     return proxy;
 }

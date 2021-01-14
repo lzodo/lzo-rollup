@@ -1,4 +1,4 @@
-import { track } from "./effect";
+import { track, trigger } from "./effect";
 import {
     hasChanged,
     hasOwn,
@@ -42,13 +42,16 @@ function createSetter() {
                 ? Number(key) < target.length
                 : hasOwn(target, key);
 
+        const res = Reflect.set(target, key, value, receiver);
+
         if (!hadKey) {
             console.log("新增属性");
+            trigger(target, "add", key, value);
         } else if (hasChanged(value, oldValue)) {
+            trigger(target, "set", key, value, oldValue);
             console.log("修改属性");
         }
 
-        const res = Reflect.set(target, key, value, receiver);
         return res;
     };
 }

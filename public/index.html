@@ -7,6 +7,7 @@
     </head>
     <body>
         <div id="app"></div>
+        <div id="app1"></div>
         <!--
             tree shaking :打包的时候没用到的代码会被自动清除
         -->
@@ -15,14 +16,22 @@
         <script>
             const { reactive, effect, ref, computed, toRefs } = VueReactivity;
             const state = reactive({ name: "liao", age: "20" });
+            const state1 = reactive([1, 2, 5]);
 
             // //当effect依赖的数据发生变化，effect函数会重新执行
             effect(() => {
-                console.log("ok");
-                app.innerHTML = state.name;
+                // effect(() => {
+                //     app.innerHTML = state.name + ":" + state.age;
+                // });
+                console.log(state1);
+                app1.innerHTML = state1[0] + state1[2];
             });
             // state.name = "iao";
-            setTimeout(() => {}, 2000);
+            setTimeout(() => {
+                state1.length = 1;
+                // state1.name = "new lzo";
+                // state1.name = "new lz2o";
+            }, 2000);
         </script>
     </body>
 </html>

@@ -26,7 +26,7 @@ export default {
         //替换环境变量
         replace({
             "process.env.NOOD_ENV": JSON.stringify("development"),
-            "process.env.xxx":JSON.stringify("随意替换值")
+            "process.env.xxx": JSON.stringify("随意替换值"),
         }),
         //启动服务
         serve({

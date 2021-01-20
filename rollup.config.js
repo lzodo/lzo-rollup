@@ -32,7 +32,7 @@ export default {
         serve({
             open: true,
             openPage: "/public/index.html",
-            port: 3000,
+            port: 3004,
             contentBase: "", //服务启动位置 默认空
         }),
     ],
